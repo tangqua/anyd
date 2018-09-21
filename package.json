@@ -7,7 +7,7 @@
     "lint": "eslint .",
     "fix": "eslint --fix ."
   },
-  "pre-commit":[
+  "pre-commit": [
     "fix",
     "lint"
   ],
@@ -21,7 +21,9 @@
     "url": "https://github.com/tangqua/anyd/issues"
   },
   "homepage": "https://github.com/tangqua/anyd#readme",
-  "dependencies": {},
+  "dependencies": {
+    "handlebars": "^4.0.12"
+  },
   "devDependencies": {
     "babel-eslint": "^9.0.0",
     "chalk": "^2.4.1",
