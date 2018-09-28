@@ -2,5 +2,12 @@ module.exports={
 	root:process.cwd(),
 	port:3000,
 	hostname:"localhost",
-	compress:/\.(html|css|js|md)/
+	compress:/\.(html|css|js|md)/,
+	cache:{
+		maxAge:600,
+		expires:true,
+		cacheControl:true,
+		lastModified:true,
+		etag:true
+	}
 }

@@ -7,6 +7,8 @@ const readdir=promisify(fs.readdir);
 const config=require('../config/defaultconfig')
 const mime=require('./mime')
 const compress=require('./compress')
+const range=require('./range')
+const isFresh=require('./cache')
 
 const tplPath=path.join(__dirname, '../template/dir.tpl')
 const source=fs.readFileSync(tplPath)
@@ -17,9 +19,24 @@ module.exports=async function (req,res,filePath) {
 		const stats = await stat(filePath)
 		if(stats.isFile()){
 			const contentType=mime(filePath)
-			res.statusCode=200;
+			
 			res.setHeader('Content-Type',contentType);
-			let rs=fs.createReadStream(filePath)
+
+			if(isFresh(stats,req,res)){
+				res.statusCode=304
+				res.end()
+				return;
+			}
+
+			let rs ;
+			const {code,start,end}=range(stats.size,req,res)
+			if(code==200){
+				res.statusCode=200;
+				rs=fs.createReadStream(filePath)
+			}else{
+				res.statusCode=206;
+				rs=fs.createReadStream(filePath,{start,end})
+			}
 			if(filePath.match(config.compress)){
 				rs=compress(rs,req,res) 
 			}
