@@ -1,10 +1,10 @@
 {
-  "name": "anyd",
+  "name": "anydtq",
   "version": "0.1.0",
   "description": "study nodejs",
   "main": "src/app.js",
   "bin":{
-    "anyd":"bin/anyd"
+    "anydtq":"bin/anydtq"
   },
   "scripts": {
     "lint": "eslint .",
@@ -18,7 +18,7 @@
     "type": "git",
     "url": "git+https://github.com/tangqua/anyd.git"
   },
-  "author": "tangquan",
+  "author": "qqa13795",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/tangqua/anyd/issues"
