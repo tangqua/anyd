@@ -4,7 +4,7 @@
   "description": "study nodejs",
   "main": "src/app.js",
   "bin":{
-    "anydtq":"bin/anydtq"
+    "anyd":"bin/anyd"
   },
   "scripts": {
     "lint": "eslint .",
@@ -18,7 +18,7 @@
     "type": "git",
     "url": "git+https://github.com/tangqua/anyd.git"
   },
-  "author": "qqa13795",
+  "author": "tangquan",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/tangqua/anyd/issues"
